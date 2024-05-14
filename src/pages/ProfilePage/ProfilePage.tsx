@@ -1,6 +1,6 @@
 import React from "react";
-import sketchImages from "../../data/sketchImages";
-import SketchLine from "../../components/SketchLine/SketchLine";
+import ProfileHeader from "../../components/ProfileHeader/ProfileHeader";
+import ProfileBody from "../../components/ProfileBody/ProfileBody";
 
 interface Props {
   // Define your component's props here
@@ -9,7 +9,8 @@ interface Props {
 const ProfilePage: React.FC<Props> = () => {
   return (
     <div>
-      <SketchLine sketchDrawns={sketchImages} />
+      <ProfileHeader />
+      <ProfileBody />
     </div>
   );
 };

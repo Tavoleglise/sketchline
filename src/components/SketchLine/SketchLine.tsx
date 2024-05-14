@@ -23,9 +23,11 @@ const SketchLine: FC<propsInterface> = ({ sketchDrawns }) => {
 
   return (
     <>
-      <button onClick={handleClick}>Next</button>
-      <div className="relative w-screen h-screen">
-        <AnimatePresence>
+      <button onClick={handleClick} className="relative z-30">
+        Next
+      </button>
+      <div className="relative w-screen max-h-screen">
+        {/* <AnimatePresence>
           {sketchDrawns.map((sketchDrawn, index) => {
             const isActive = index === currentImage;
             const isPrevious = index === currentImage - 1;
@@ -52,7 +54,7 @@ const SketchLine: FC<propsInterface> = ({ sketchDrawns }) => {
             }
             return null;
           })}
-        </AnimatePresence>
+        </AnimatePresence> */}
       </div>
     </>
   );

@@ -13,6 +13,9 @@ export default {
       colors: {
         primary: "purple",
       },
+      backgroundImage: {
+        "custom-bg": "url('/assets/images/test-image2.jpg')",
+      },
     },
   },
   darkMode: "class",
