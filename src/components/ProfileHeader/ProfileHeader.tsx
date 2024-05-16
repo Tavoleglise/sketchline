@@ -1,11 +1,21 @@
 import { FC } from "react";
 import HeaderUserInfo from "./HeaderUserInfo";
-import useClient from "../../hooks/useClient";
 // import { user } from "@nextui-org/react";
+interface ProfileHeaderProps {
+  username: string;
+  firstname: string;
+  lastname: string;
+  profession?: string;
+  avatar?: string;
+}
 
-const ProfileHeader: FC = () => {
-  const { username, lastName, firstName, profession } = useClient();
-
+const ProfileHeader: FC<ProfileHeaderProps> = ({
+  username,
+  firstname,
+  lastname,
+  profession,
+  avatar,
+}) => {
   return (
     <>
       <div className="relative h-[50vh]">
@@ -13,9 +23,10 @@ const ProfileHeader: FC = () => {
         <div className="relative h-full flex justify-start items-end container mx-auto p-4 z-10">
           <HeaderUserInfo
             username={username}
-            firstName={firstName}
-            lastName={lastName}
+            firstName={firstname}
+            lastName={lastname}
             profession={profession}
+            avatar={avatar}
           />
         </div>
       </div>

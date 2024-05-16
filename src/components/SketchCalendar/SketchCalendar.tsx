@@ -1,12 +1,5 @@
 import { FC } from "react";
-
-interface Drawns {
-  url: string;
-  updateDate: Date;
-  username: string;
-  sketchlineName?: string;
-  title?: string;
-}
+import CalendarDayCard from "../CalendarDayCard/CalendarDayCard";
 
 const mockCalendarData = [
   {
@@ -57,11 +50,7 @@ const SketchCalendar: FC = () => {
             </div>
             <div className="flex flex-wrap">
               {monthData.days.map((dayData) => {
-                return (
-                  <div className="flex flex-grow justify-center items-center m-2 w-52 h-52 border border-gray-300 rounded-md">
-                    {dayData.day}
-                  </div>
-                );
+                return <CalendarDayCard day={dayData.day} />;
               })}
             </div>
           </div>

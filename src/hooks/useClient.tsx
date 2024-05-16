@@ -1,10 +1,9 @@
-import useClientStore from "../stores/useClientStore";
+import useClientStore from "../stores/useClientStore/useClientStore";
 
 const useClient = () => {
-  const { username, lastName, firstName, profession } = useClientStore(
-    (state) => state.client
-  );
-  return { username, lastName, firstName, profession };
+  const client = useClientStore((state) => state.client);
+  const { setClient } = useClientStore((state) => state);
+  return { client, setClient };
 };
 
 export default useClient;
