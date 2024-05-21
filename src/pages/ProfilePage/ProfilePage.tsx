@@ -1,6 +1,6 @@
 import { FC, useEffect } from "react";
-import ProfileHeader from "../../components/ProfileHeader/ProfileHeader";
-import ProfileBody from "../../components/ProfileBody/ProfileBody";
+import ProfileHeader from "../../components/profilePageComponents/ProfileHeader/ProfileHeader";
+import ProfileBody from "../../components/profilePageComponents/ProfileBody/ProfileBody";
 import useClient from "../../hooks/useClient";
 
 interface Props {
@@ -12,22 +12,21 @@ const ProfilePage: FC<Props> = () => {
   useEffect(() => {
     setClient({
       username: "Tavoleglise",
-      firstName: "Gustavo",
-      lastName: "Leglise",
+      firstname: "Gustavo",
+      lastname: "Leglise",
       profession: "Software Engineer",
       avatar: "https://avatars.githubusercontent.com/u/128492",
       email: "tavoleglise@gmail.com",
+      location: {
+        city: "São Paulo",
+        country: "Brazil",
+      },
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div>
-      <ProfileHeader
-        username={client.username}
-        firstname={client.firstName}
-        lastname={client.lastName}
-        profession={client.profession}
-        avatar={client.avatar}
-      />
+      <ProfileHeader {...client} />
       <ProfileBody />
     </div>
   );

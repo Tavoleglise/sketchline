@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+// import { motion, AnimatePresence } from "framer-motion";
 
 interface sketchImage {
   url: string;

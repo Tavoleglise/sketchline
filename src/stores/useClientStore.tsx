@@ -1,12 +1,12 @@
 import create from "zustand";
-import { ClientState, Client } from "./models";
-import { getFromStorage, setToStorage } from "../../utilities";
+import { Client, ClientState } from "../models/client.models";
+import { getFromStorage, setToStorage } from "../utilities";
 
 const useClientStore = create<ClientState>((set) => ({
   client: getFromStorage("client", "session", {
     username: "",
-    firstName: "",
-    lastName: "",
+    firstname: "",
+    lastname: "",
     avatarUrl: "",
     profession: "",
     email: "",

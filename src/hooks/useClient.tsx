@@ -1,4 +1,4 @@
-import useClientStore from "../stores/useClientStore/useClientStore";
+import useClientStore from "../stores/useClientStore";
 
 const useClient = () => {
   const client = useClientStore((state) => state.client);

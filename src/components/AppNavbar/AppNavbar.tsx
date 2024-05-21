@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Navbar, NavbarBrand } from "@nextui-org/react";
-import Logo from "../../common/Logo";
+import Logo from "../../commons/Logo";
 import { ProfileSection } from "./ProfileSection";
 import MenuSection from "./MenuSection";
 

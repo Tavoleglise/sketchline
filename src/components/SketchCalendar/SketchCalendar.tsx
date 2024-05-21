@@ -1,59 +1,62 @@
-import { FC } from "react";
-import CalendarDayCard from "../CalendarDayCard/CalendarDayCard";
+import { FC, useEffect, useState } from "react";
+import { getDaysForCalendar, groupByYearAndMonth } from "../../utilities";
+import CalendarYear from "./CalendarYear";
+import { Sketch } from "../../models";
 
-const mockCalendarData = [
+const mockSketches = [
   {
-    year: 2022,
-    month: "January",
-    days: [
-      { day: 1 },
-      { day: 2 },
-      { day: 3 },
-      { day: 4 },
-      { day: 5 },
-      { day: 6 },
-      { day: 7 },
-      { day: 8 },
-      { day: 9 },
-      { day: 10 },
-      { day: 11 },
-      { day: 12 },
-      { day: 13 },
-      { day: 14 },
-      { day: 15 },
-      { day: 16 },
-      { day: 17 },
-      { day: 18 },
-      { day: 19 },
-      { day: 20 },
-      { day: 21 },
-      { day: 22 },
-      { day: 23 },
-      { day: 24 },
-      { day: 25 },
-      { day: 26 },
-      { day: 27 },
-      { day: 28 },
-      { day: 29 },
-    ],
+    id: 1,
+    title: "test1",
+    description: "",
+    image: "",
+    date: new Date(2024, 4, 10, 8, 42, 0, 0),
+  },
+  {
+    id: 2,
+    title: "test2",
+    description: "",
+    image: "",
+    date: new Date(2024, 4, 15, 8, 42, 0, 0),
+  },
+  {
+    id: 3,
+    title: "test3",
+    description: "",
+    image: "",
+    date: new Date(2024, 4, 12, 8, 42, 0, 0),
+  },
+  {
+    id: 3,
+    title: "test4",
+    description: "",
+    image: "",
+    date: new Date(2023, 11, 24, 8, 42, 0, 0),
   },
 ];
+interface CalendarProps {
+  [year: number]: {
+    [month: number]: Sketch[];
+  };
+}
 
 const SketchCalendar: FC = () => {
+  const initialCalendarData: CalendarProps = groupByYearAndMonth(
+    getDaysForCalendar(mockSketches)
+  );
+  const [calendarData] = useState<CalendarProps>(initialCalendarData);
+  useEffect(() => {
+    console.log(initialCalendarData);
+    // getDaysForCalendar(mockSketches);
+  }, []);
   return (
-    <div>
-      {mockCalendarData.map((monthData) => {
+    <div className="w-full">
+      {Object.keys(calendarData).map((year) => {
         return (
-          <div>
-            <div className="mt-16 mb-4 text-3xl font-bold">
-              {monthData.month}
-            </div>
-            <div className="flex flex-wrap">
-              {monthData.days.map((dayData) => {
-                return <CalendarDayCard day={dayData.day} />;
-              })}
-            </div>
-          </div>
+          <CalendarYear
+            key={year}
+            year={parseInt(year)}
+            months={calendarData[parseInt(year)]}
+          />
         );
       })}
     </div>
