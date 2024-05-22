@@ -10,7 +10,7 @@ const CalendarDayCard: FC<Sketch> = ({
   date,
 }) => {
   return (
-    <Card className="flex justify-center items-center m-2 w-52 h-52 rounded-jg bg-rose-200">
+    <Card className="flex justify-center items-center m-2 w-52 h-52 rounded-jg">
       {title ? title : date.getDate()}
     </Card>
   );

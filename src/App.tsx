@@ -1,7 +1,7 @@
 import { FC } from "react";
 import "./App.css";
 import { Route, Switch } from "wouter";
-import AppNavbar from "./components/appNavbar/AppNavbar";
+import AppNavbar from "./components/AppNavbar/AppNavbar";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 
 const Home: FC = () => <div>Home</div>;

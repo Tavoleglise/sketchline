@@ -11,7 +11,8 @@ interface CalendarMonthProps {
 const CalendarMonth: FC<CalendarMonthProps> = ({ monthNumber, sketches }) => {
   return (
     <div>
-      {monthsNames[monthNumber]}
+      <div className="font-bold my-4 pl-4">{monthsNames[monthNumber]}</div>
+
       <div className="flex flex-wrap">
         {sketches.map((sketch) => {
           return <CalendarDayCard key={sketch.id} {...sketch} />;

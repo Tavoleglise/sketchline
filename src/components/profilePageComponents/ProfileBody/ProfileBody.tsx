@@ -2,7 +2,7 @@ import { FC } from "react";
 
 // components
 import { Tabs, Tab } from "@nextui-org/react";
-import SketchCalendar from "../../sketchCalendar/SketchCalendar";
+import SketchCalendar from "../../SketchCalendar/SketchCalendar";
 
 const ProfileBody: FC = () => {
   return (

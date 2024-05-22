@@ -19,7 +19,7 @@ const HeaderUserInfo: FC<Client> = ({
           {`${firstname}
            ${lastname} | ${profession}`}
         </div>
-        <div>{`${location.city}, ${location.country}`}</div>
+        <div>{`${location?.city}, ${location?.country}`}</div>
       </div>
     </div>
   );

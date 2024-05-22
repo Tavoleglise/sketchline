@@ -12,3 +12,13 @@ export interface Sketch {
   image: string;
   date: Date;
 }
+
+export interface Month {
+  month: number;
+  sketches: Sketch[];
+}
+
+export interface Year {
+  year: number;
+  months: Month[];
+}

@@ -1,25 +1,34 @@
-import { FC, useEffect } from "react";
-import { Sketch } from "../../models";
+import { FC, useEffect, useState } from "react";
+import { Month } from "../../models";
 import CalendarMonth from "./CalendarMonth";
+import { calculateYearSketches } from "../../utilities";
 
 interface CalendarYearProps {
   year: number;
-  months: { [month: number]: Sketch[] };
+  months: Month[];
 }
 
 const CalendarYear: FC<CalendarYearProps> = ({ year, months }) => {
+  const [sketchesCount, setSketchesCount] = useState<number>(0);
   useEffect(() => {
-    console.log("FromCalendarYear", year, months);
+    // console.log("FromCalendarYear", year, months);
+    setSketchesCount(calculateYearSketches(months));
   }, []);
   return (
-    <div className="">
-      {year}
-      {Object.keys(months).map((month) => {
+    <div className=" pl-16 pr-16 pb-16 mb-16">
+      <div className="p-4 rounded-t-3xl text-3xl w-full bg-red-200 font-bold">
+        {year}
+        <span className="font-semibold text-lg ml-4">{`${sketchesCount} ${
+          sketchesCount === 1 ? "Sketch" : "Sketches"
+        }`}</span>
+      </div>
+
+      {months.map((monthData) => {
         return (
           <CalendarMonth
-            key={month}
-            monthNumber={parseInt(month)}
-            sketches={months[parseInt(month)]}
+            key={monthData.month}
+            monthNumber={monthData.month}
+            sketches={monthData.sketches}
           />
         );
       })}
